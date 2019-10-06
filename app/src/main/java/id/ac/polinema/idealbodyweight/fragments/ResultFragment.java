@@ -1,16 +1,14 @@
 package id.ac.polinema.idealbodyweight.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import id.ac.polinema.idealbodyweight.R;
 
@@ -23,10 +21,19 @@ import id.ac.polinema.idealbodyweight.R;
 public class ResultFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private String information;
+    String information;
+    String status;
 
     public void setInformation(String information) {
         this.information = information;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public ResultFragment() {
+        // Required empty public constructor
     }
 
 
@@ -38,20 +45,16 @@ public class ResultFragment extends Fragment {
         TextView informationText = view.findViewById(R.id.text_information);
         informationText.setText(information);
         Button tryAgainButton = view.findViewById(R.id.button_try_again);
+
         tryAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mListener != null) {
-                    mListener.onTryAgainButtonClicked("BrocaIndex");
+                    mListener.onTryAgainButtonClicked(status);
                 }
             }
         });
-        return  view;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public interface OnFragmentInteractionListener {
-        void onTryAgainButtonClicked(String tag);
+        return view;
     }
 
     @Override
@@ -81,5 +84,7 @@ public class ResultFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-
+    public interface OnFragmentInteractionListener {
+        void onTryAgainButtonClicked(String tag);
+    }
 }

@@ -1,15 +1,13 @@
 package id.ac.polinema.idealbodyweight.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import id.ac.polinema.idealbodyweight.R;
 
@@ -33,10 +31,10 @@ public class MenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
+
         Button brocaButton = view.findViewById(R.id.button_broca);
         Button bmiButton = view.findViewById(R.id.button_bmi);
 
-        // sisipkan register event click nanti di sini.
         brocaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,8 +55,6 @@ public class MenuFragment extends Fragment {
 
         return view;
     }
-
-    // TODO: Rename method, update argument and hook method into UI event
 
     @Override
     public void onAttach(Context context) {
@@ -89,6 +85,7 @@ public class MenuFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         void onBrocaIndexButtonClicked();
+
         void onBodyMassIndexButtonClicked();
     }
 }
